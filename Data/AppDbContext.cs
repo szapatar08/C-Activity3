@@ -18,6 +18,23 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        /*Astronaut lenght requirements*/
+        modelBuilder.Entity<Astronaut>()
+            .Property(a => a.Name)
+            .HasMaxLength(100)
+            .IsRequired();
+        
+        modelBuilder.Entity<Astronaut>()
+            .Property(a => a.Lastname)
+            .HasMaxLength(100)
+            .IsRequired();
+        
+        modelBuilder.Entity<Astronaut>()
+            .Property(a => a.Position)
+            .HasMaxLength(50)
+            .IsRequired();
+        
+        /*Missions foreign key*/
         modelBuilder.Entity<Mision>()
             .HasOne(m => m.Astronaut)
             .WithMany(a => a.Misions)
@@ -28,6 +45,7 @@ public class AppDbContext : DbContext
             .WithMany(s => s.Misions)
             .HasForeignKey(m => m.SpaceshipId);
         
+        /*Exploration Register foreign key*/
         modelBuilder.Entity<ExplorationRegister>()
             .HasOne(e => e.Mision)
             .WithMany(r => r.Registers)

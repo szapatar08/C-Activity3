@@ -112,3 +112,4 @@
 /home/szapatar/projects/dotnet/C#Activity3/obj/Debug/net10.0/C#Activity3.pdb
 /home/szapatar/projects/dotnet/C#Activity3/obj/Debug/net10.0/C#Activity3.genruntimeconfig.cache
 /home/szapatar/projects/dotnet/C#Activity3/obj/Debug/net10.0/ref/C#Activity3.dll
+/home/szapatar/projects/dotnet/C#Activity3/obj/Debug/net10.0/C#Activity3.sourcelink.json
