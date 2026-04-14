@@ -1,4 +1,5 @@
 ﻿using C_Activity3.Models;
+using C_Activity3.Services;
 
 bool s = true;
 
@@ -25,19 +26,19 @@ while (s)
             switch (op2)
             {
                 case 1:
-                    Astronaut.AddAstronaut();
+                    Astronauts.AddAstronaut();
                     break;
                 
                 case 2:
-                    Astronaut.ShowAstronaut();
+                    Astronauts.ShowAstronaut();
                     break;
                 
                 case 3:
-                    Astronaut.UpdateAstronaut();
+                    Astronauts.UpdateAstronaut();
                     break;
                 
                 case 4:
-                    Astronaut.DeleteAstronaut();
+                    Astronauts.DeleteAstronaut();
                     break;
             }
             break;
@@ -54,19 +55,7 @@ while (s)
             switch (op3)
             {
                 case 1:
-                    Astronaut.AddAstronaut();
-                    break;
-                
-                case 2:
-                    Astronaut.ShowAstronaut();
-                    break;
-                
-                case 3:
-                    Astronaut.UpdateAstronaut();
-                    break;
-                
-                case 4:
-                    Astronaut.DeleteAstronaut();
+                    Astronauts.AddAstronaut();
                     break;
             }
             break;
