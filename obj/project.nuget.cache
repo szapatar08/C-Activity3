@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q1GFenwSj4E=",
+  "dgSpecHash": "tmb50drB/2s=",
   "success": true,
   "projectFilePath": "/home/szapatar/projects/dotnet/C#Activity3/C#Activity3.csproj",
   "expectedPackageFiles": [
@@ -39,8 +39,7 @@
     "/home/szapatar/.nuget/packages/system.composition.convention/9.0.0/system.composition.convention.9.0.0.nupkg.sha512",
     "/home/szapatar/.nuget/packages/system.composition.hosting/9.0.0/system.composition.hosting.9.0.0.nupkg.sha512",
     "/home/szapatar/.nuget/packages/system.composition.runtime/9.0.0/system.composition.runtime.9.0.0.nupkg.sha512",
-    "/home/szapatar/.nuget/packages/system.composition.typedparts/9.0.0/system.composition.typedparts.9.0.0.nupkg.sha512",
-    "/home/szapatar/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.4/microsoft.aspnetcore.app.ref.10.0.4.nupkg.sha512"
+    "/home/szapatar/.nuget/packages/system.composition.typedparts/9.0.0/system.composition.typedparts.9.0.0.nupkg.sha512"
   ],
   "logs": []
 }

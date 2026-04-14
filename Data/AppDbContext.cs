@@ -34,6 +34,22 @@ public class AppDbContext : DbContext
             .HasMaxLength(50)
             .IsRequired();
         
+        /*Engineers lenght requirements*/
+        modelBuilder.Entity<Engineer>()
+            .Property(a => a.Name)
+            .HasMaxLength(100)
+            .IsRequired();
+        
+        modelBuilder.Entity<Engineer>()
+            .Property(a => a.Lastname)
+            .HasMaxLength(100)
+            .IsRequired();
+        
+        modelBuilder.Entity<Engineer>()
+            .Property(a => a.Speciality)
+            .HasMaxLength(50)
+            .IsRequired();
+        
         /*Missions foreign key*/
         modelBuilder.Entity<Mision>()
             .HasOne(m => m.Astronaut)
