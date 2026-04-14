@@ -46,28 +46,114 @@ public class Astronaut
             Include(n => n.Misions).
             ToList();
 
-        Console.WriteLine("\n****Astronauts****");
-        foreach (Astronaut astronaut in astronauts)
+        if (astronauts.Count > 0)
         {
-            string missions = "";
-            if (astronaut.Misions.Count > 0)
+            Console.WriteLine("\n****Astronauts****");
+            foreach (Astronaut astronaut in astronauts)
             {
-                foreach (Mision m in astronaut.Misions)
+                string missions = "";
+                if (astronaut.Misions.Count > 0)
                 {
-                    missions += $"Mission: {m.Name} ";
+                    foreach (Mision m in astronaut.Misions)
+                    {
+                        missions += $"Mission: {m.Name} ";
+                    }
                 }
-            }
-            else
-            {
-                missions = "No Missions Found";
-            }
+                else
+                {
+                    missions = "No Missions Found";
+                }
             
-            Console.WriteLine($"Id: {astronaut.Id}\n" +
-                              $"Full Name: {astronaut.Name} {astronaut.Lastname}\n" +
-                              $"Position: {astronaut.Position}\n" +
-                              $"Hours of Experience: {astronaut.HoursExperience}\n" +
-                              $"Missions: {missions}\n" +
-                              $"-----------------------------------------------------\n");
+                Console.WriteLine($"Id: {astronaut.Id}\n" +
+                                  $"Full Name: {astronaut.Name} {astronaut.Lastname}\n" +
+                                  $"Position: {astronaut.Position}\n" +
+                                  $"Hours of Experience: {astronaut.HoursExperience}\n" +
+                                  $"Missions: {missions}\n" +
+                                  $"-----------------------------------------------------\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("\nThere are not astronauts registered\n");
+        }
+    }
+
+    public static void UpdateAstronaut()
+    {
+        var context = new AppDbContext();
+
+        Console.Write("\nPlease enter the astronaut id: ");
+        int id = int.Parse(Console.ReadLine()!);
+        
+        Astronaut astronaut = context.Astronauts.Where(a => a.Id == id).FirstOrDefault();
+
+        if (astronaut == null)
+        {
+            Console.WriteLine($"\nThere is no Astronaut with Id: {id}\n");
+        }
+        else
+        {
+            Console.Write("What do you want to update?\n" +
+                          "1 - Name\n" +
+                          "2 - Lastname\n" +
+                          "3 - Position\n" +
+                          "4 - Hours of Experience\n" +
+                          "Please select an option: ");
+            int op = int.Parse(Console.ReadLine()!);
+
+            switch (op)
+            {
+                case 1:
+                    Console.Write("What is the new name: ");
+                    string newName = Console.ReadLine()!;
+                    astronaut.Name = newName;
+                    context.SaveChanges();
+                    break;
+                
+                case 2:
+                    Console.Write("What is the new lastname: ");
+                    string newLastname = Console.ReadLine()!;
+                    astronaut.Lastname = newLastname;
+                    context.SaveChanges();
+                    break;
+                
+                case 3:
+                    Console.Write("What is the new position: ");
+                    string newPosition = Console.ReadLine()!;
+                    astronaut.Position = newPosition;
+                    context.SaveChanges();
+                    break;
+                
+                case 4:
+                    Console.Write("Update the hours of experience: ");
+                    int hoursExperince = int.Parse(Console.ReadLine()!);
+                    astronaut.HoursExperience = hoursExperince;
+                    context.SaveChanges();
+                    break;
+            }
+
+            Console.WriteLine("Successfully updated\n");
+        }
+    }
+
+    public static void DeleteAstronaut()
+    {
+        var context = new AppDbContext();
+        
+        Console.Write("\nPlease enter the astronaut id: ");
+        int id = int.Parse(Console.ReadLine()!);
+        
+        Astronaut astronaut = context.Astronauts.Where(a => a.Id == id).FirstOrDefault();
+
+        if (astronaut == null)
+        {
+            Console.WriteLine($"\nThere is no Astronaut with Id: {id}\n");
+        }
+        else
+        {
+            context.Astronauts.Remove(astronaut);
+            context.SaveChanges();
+            Console.WriteLine("Successfully removed\n");
         }
     }
 }
